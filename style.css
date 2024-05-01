@@ -314,7 +314,7 @@ header{
     min-height: 60vh;
     display: grid;
     grid-template-columns: repeat(auto-fit,
-        minmax(340px, 1fr));
+        minmax(330px, 1fr));
     place-content: center;
     gap:2rem;
 
@@ -325,7 +325,7 @@ header{
 .service{
     background: var(--box-background);
     padding:4rem 2rem;
-    min-height: 350px;
+    min-height: 300px;
     position: relative;
     margin-top:3rem;
 
@@ -415,9 +415,8 @@ header{
     position: relative;
     width: 70%;
     min-height: 30vh;
-    margin: 0 auto;
     padding: 3rem;
-    border-radius:0px 10px 10px 10px;
+    border-radius:10px;
     
     background: var(--box-background);
     box-shadow: var(--shadow);
@@ -428,30 +427,25 @@ header{
     justify-content: space-evenly;
     gap: 2rem;
     flex-wrap: wrap;
-    margin-top: 5rem;
+    margin: 5rem auto;
 
 }
 
-.skills-title{
+/* .skills-title{
     position: absolute;
     left: 0;
     top: calc(-50px + 8px);
-
+    width: 100%;
     height: 50px;
     padding:  .5rem 2rem 0 2rem;
     background: var(--box-background);
-
-    z-index: -10;
-    border-radius: 10px 10px 10px 0px;
-    color: rgb(255, 255, 255);
-
-}
+} */
 
 
 .skill{
     position: relative;
-    width:120px;
-    height: 120px;
+    width:clamp(5rem,10vw,6rem);
+    height: clamp(5rem, 10vw, 6rem);
 
     
     border-radius: 50%;
@@ -463,22 +457,22 @@ header{
 
 .skill h3{
     position: absolute;
-    top: 35px;
+    top: 25px;
     left: 50%;
     transform: translateX(-50%);
     z-index: 2;
+    font-size: clamp(1rem , 5vw , 1.5rem);
 }
 .skill h3 span{
     font-size: 1rem;
 }
 .skill h4{
     position: absolute;
-    top: 60px;
+    top: 45px;
     left: 50%;
     transform: translateX(-50%);
     z-index: 2;
     font-weight: 100;
-    font-size: .75rem;
     text-wrap: nowrap;
 }
 
@@ -525,14 +519,97 @@ footer{
 
 
 
+.testimonials{
+    width: 100%;
+    min-height: 50vh;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
+    gap: 2rem;
+    align-items: baseline;
+    margin-top: 3rem;
+
+}
+
+.testimonial{
+    min-height: 200px;
+    max-width: 350px;
+    margin: 0 auto;
+    background: var(--box-background);
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+
+}
 
 
+.profile{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 1rem;
+
+}
+
+.profile img{
+    width: 50px;
+    width: 50xp;
+    border-radius: 50%;
+}
+.name-test{
+    color: #8d8d8d;
+}
+.comment{
+    --max-lines: 4;
+    --line-height: 1.3;
+    max-height:calc(var(--max-lines) * 1em * var(--line-height));
+    line-height: var(--line-height);
+    overflow: hidden;
+    position: relative;
+}
 
 
+.comment.comment:has(+ .expand-btn:not(:checked))::before{
+    content: '';
+    position: absolute;
+    height: calc(1em * var(--line-height));
+    width: 100%;
+    bottom: 0;
+    pointer-events: none;
+    background: linear-gradient(to bottom, transparent,var(--box-background));
+    
+}
+
+.expand-btn{
+    appearance: none;
+    border: 1px solid white;
+    padding: .5rem;
+    border-radius: .25rem;
+    cursor: pointer;
+    margin-top: 1rem;
+    color: #c9c9c9;
+}
+
+.expand-btn:hover{
+    color: white;
+}
+
+.expand-btn::before{
+    content: "see more";
+}
+.expand-btn:checked::before{
+    content: "see lass";
+}
+
+.comment:has( + .expand-btn:checked){
+    max-height: none;
+}
 
 @media screen and (min-width:768px) {
 
     body{
+
         padding: 0 5rem;
     }
 
@@ -564,6 +641,7 @@ footer{
 
  .logo-desctop{
     display: flex;
+    color: var(--primary);
  }
     .lists {
         margin: 0;
@@ -688,5 +766,8 @@ footer{
                 width: 50%;
 
             }
-   
+            .skill h4 {
+                top: clamp(1.5rem ,6vw , 3.3rem);
+                font-size: 1rem;
+            }
 }
