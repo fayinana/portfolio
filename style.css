@@ -648,6 +648,7 @@ footer{
     margin-bottom: .3rem;
     color: var(--primary);
     text-transform: capitalize;
+    text-align: left;
 }
 
 .contact-form textarea{
@@ -661,10 +662,16 @@ footer{
     padding: .25rem .5rem;
 
 }
+.form{
+    text-align: center;
+}
 .submit{
     padding: 1rem 2rem;
     color: var(--white-clr);
     background: var(--primary);
+}
+.form-btn{
+    margin-top: 3rem;
 }
 .social-icons{
     width: 100%;
@@ -701,6 +708,8 @@ color: var(--primary);}
 .gmail{
     color: var(--primary);
 }
+
+
 @media screen and (min-width:768px) {
 
     body{
