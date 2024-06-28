@@ -44,6 +44,7 @@ img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center;
 }
 
 a{
@@ -381,6 +382,7 @@ header{
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    margin: 2rem 0;
 
     row-gap: 2rem;
     border-radius: 10px;
@@ -388,16 +390,16 @@ header{
     background: var(--box-background);
     box-shadow: var(--shadow);
    
-    
-
+   
 }
+
 .image-section{
     width: 100%;
     height: 300px;
     max-width: 500px;
 
-    background: var(--primary);
 }
+
 
 .pro-title{
     text-transform: capitalize;
